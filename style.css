@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;  
+    color: var(--color-three);
+    
+}
+
+:root{
+    --color-one:#051414;
+    --color-two:#cde4e7;
+    --color-three:white;
+    --color-four: black;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    /* background-image: url(img/background.jpg); */
+    background-color: var(--color-one);
+}
+
+#page--container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr 100px;
+    height: 100vh;
+    width: 1200px;
+    
+}
+
+#page--header{
+    grid-area: 1/1/2/2;
+    background-color: var(--color-one);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#page--body{
+    grid-area: 2/1/3/2;
+    background-color: var(--color-two);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    justify-content: space-between;
+    box-shadow: 0 0 7px var(--color-one) inset;
+}
+
+#page--footer{
+    text-align: center;
+}
+
+#page--footer > p{
+    background-color: var(--color-one);
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 5px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    width: 260px;
+    height: 22px;
+    box-shadow: 0 0 5px var(--color-one);
+}
+
+#nav--container{
+    align-self: center; 
+}
+
+#nav--container > li {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--color-one);
+    padding: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 260px;
+    box-shadow: 0 0 5px var(--color-one);
+}
+
+#nav--container > li > ul {
+    width: 120px;
+}
+
+#nav--container > li > ul:first-of-type{
+    border-right: 1px solid var(--color-three);
+}
+
+#book--list--container{
+    height: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 200px;
+    place-items: center;
+}
+
+.book--card{
+    background-color: var(--color-one);
+    border-radius: 5px;
+    width: 350px;
+    height: 170px;
+    box-shadow: 0 0 5px var(--color-one);
+    padding: 5px;
+}
+
+.book--add{
+    border-radius: 5px;
+    width: 350px;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    box-shadow: 0 0 5px var(--color-one);
+}
+
+.book--add > p{
+    color: var(--color-one);
+}
