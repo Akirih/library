@@ -3,6 +3,7 @@
     padding: 0;
     list-style-type: none;  
     color: var(--color-three);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
     
 }
 
@@ -68,17 +69,17 @@ body{
     align-self: center; 
 }
 
-#nav--container > li {
+#nav--container > p {
     display: flex;
     gap: 1rem;
     background-color: var(--color-one);
     padding: 5px;
     font-size: 1.2rem;
-    text-align: center;
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 260px;
     box-shadow: 0 0 5px var(--color-one);
+    justify-content: center;
 }
 
 #nav--container > li > ul {
@@ -104,7 +105,47 @@ body{
     width: 350px;
     height: 170px;
     box-shadow: 0 0 5px var(--color-one);
-    padding: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.book--author{
+    position: relative;
+}
+
+.book--author:hover::after {
+    content: url(img/x-circle.svg);
+    position: absolute;
+    top: -10px;
+    right: 5px;
+}
+
+.author--details{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.progress--bar{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid red; */
+    margin-bottom: 5px;
+}
+
+.progress--bar > div {
+    width: 30px;
+    height: 30px;
+    transform: skew(-20deg);
+    background-color: var(--color-two);
+}
+
+.progress--bar > div:hover{
+    transform: scale(1.2) skew(-20deg);
 }
 
 .book--add{
@@ -116,8 +157,119 @@ body{
     align-items: center;
     font-size: 5rem;
     box-shadow: 0 0 5px var(--color-one);
+    transition: 100ms;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .book--add > p{
     color: var(--color-one);
 }
+
+.book--add:hover{
+    font-size: 7rem;
+    transition: 100ms;
+}
+
+
+.add--book--popup--fade{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.add--book--container{
+    background-color: var(--color-one);
+    width: 500px;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--color-one);
+    padding: 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.add--book--form {
+    height: 100%;
+}
+
+.add--book--form  h1 {
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-two);
+    padding-bottom: 10px;
+}
+
+
+.add--book--form > form {
+    position: relative;
+    height: 100%;
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;    
+}
+
+
+
+.add--book--container label {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.add--book--container .form--element {
+    font-size: 1.9rem;
+    background-color: var(--color-two);
+    border-radius: S5px;
+    outline: none;
+    border: none;
+    color: var(--color-four);
+    text-align: center;
+    width: 100%;
+}
+
+#form--radio--not-started, #form--radio--started, #form--radio--finished{
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.form--progress--container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 40px;
+}
+
+.form--required--warning{
+    text-align: end;
+    font-size: 0.7rem;
+}
+
+.form--button--container{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-two);
+    padding-bottom: 10px;
+}
+
+.form--button{
+    width: 200px;
+    font-size: 1.9rem;
+    background: none;
+    margin-top: 5px;
+    border: none;
+    font-weight: bold;
+}
+

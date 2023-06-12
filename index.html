@@ -12,35 +12,29 @@
 <body>
 
     <div id="page--container">
-        <div id="page--header">
-            <h1>My Library</h1>
-        </div>
 
         <div id="page--body">
             <div id="nav--container">
-                <li>
-                    <ul><p>Add</p></ul>
-                    <ul><p>Remove</p></ul>
-                </li>
+                <p>My Personal Library</p>
             </div>  
             <div id="book--list--container">
                 <div class="book--card">
-                    <h2>The Book of Books</h2>
-                    <li>
-                        <ul><p>The Author</p></ul>
-                        <ul><p>1957</p></ul>
-                    </li>
-                    <p>Not Started</p>
-                    <p>Reading</p>
-                    <p>On Hold</p>
-                    <p>Reading</p>
-                    <p>Dropped</p>
+                    <div class="book-details">
+                        <h2 class="book--author">The Book about Books</h2>
+                        <div class="author--details">
+                            <p>John Writer</p>
+                            <p>1372</p>
+                        </div>
+                    </div>
+                    <div class="book--progress">
+                        <div class="progress--bar">
+                            <div class="progress--reading"></div>
+                            <div class="progress--on-hold"></div>
+                            <div class="progress--finished"></div>
+                        </div>
+                        <p class="progress--text">Not Started</p>
+                    </div>
                 </div>
-                <div class="book--card"></div>
-                <div class="book--card"></div>
-                <div class="book--card"></div>
-                <div class="book--card"></div>
-                <div class="book--card"></div>
                 <div class="book--add"><p>+</p></div>
             </div>
             
@@ -53,5 +47,65 @@
 
     </div>
 
+    <div class="add--book--popup--fade">
+        <div class="add--book--container">
+            <div class="add--book--form">
+                <form>
+                    <h1>Add new book</h1>
+                    <div> 
+                        <p><label for="form--book--name">Name:</label></p>
+                        <input type="text" id="form--book--name" maxlength="18" placeholder="Max 18 characters" required class="form--element">
+                    </div> 
+                    <div>  
+                        <p><label for="form--book--author">Author:</label> </p>
+                        <input type="text" id="form--book--author" maxlength="18" placeholder="Max 18 characters" required class="form--element">
+                    </div>
+                    <div>
+                        <p><label for="form--book--year">Release Year:</label></p>
+                        <input type="number" id="form--book--year" min="1700" max="2030" placeholder="1700-2030" required class="form--element">
+                    </div>
+                    <div class="form--progress--container">
+                        <label class="progress--label">Progress</label>
+                        <div class="progress--bar">
+                            <div class="progress--reading" onclick="document.getElementById('form--radio--not-started').checked = true; this.style.backgroundColor = 'red';"">
+                                <input type="radio" id="form--radio--not-started" name="form--radio--status">
+                            </div>
+                            <div class="progress--on-hold" onclick="document.getElementById('form--radio--started').checked = true; this.style.backgroundColor = 'yellow';">
+                                <input type="radio" id="form--radio--started" name="form--radio--status">
+                            </div>
+                            <div class="progress--finished" onclick="document.getElementById('form--radio--finished').checked = true;this.style.backgroundColor = 'green';">
+                                <input type="radio" id="form--radio--finished" name="form--radio--status">
+                               
+                            </div>                            
+                        </div>
+                    </div>
+                    <p class="form--required--warning">* all fields required</p>
+                    <div class="form--button--container">
+                        <input type="button" value="Add" class="form--button">
+                        <input type="button" value="Cancel" class="form--button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<!-- 
+    <div class="book--card">
+                    <div class="book-details">
+                        <h2 class="book--author">The Book about Books</h2>
+                        <div class="author--details">
+                            <p>John Writer</p>
+                            <p>1372</p>
+                        </div>
+                    </div>
+                    <div class="book--progress">
+                        <div class="progress--bar">
+                            <div class="progress--reading"></div>
+                            <div class="progress--on-hold"></div>
+                            <div class="progress--finished"></div>
+                        </div>
+                        <p class="progress--text">Not Started</p>
+                    </div>
+    </div>
+ -->
