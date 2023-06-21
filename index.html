@@ -46,48 +46,6 @@
 
 
     </div>
-
-    <div class="add--book--popup--fade">
-        <div class="add--book--container">
-            <div class="add--book--form">
-                <form>
-                    <h1>Add new book</h1>
-                    <div> 
-                        <p><label for="form--book--name">Name:</label></p>
-                        <input type="text" id="form--book--name" maxlength="18" placeholder="Max 18 characters" required class="form--element">
-                    </div> 
-                    <div>  
-                        <p><label for="form--book--author">Author:</label> </p>
-                        <input type="text" id="form--book--author" maxlength="18" placeholder="Max 18 characters" required class="form--element">
-                    </div>
-                    <div>
-                        <p><label for="form--book--year">Release Year:</label></p>
-                        <input type="number" id="form--book--year" min="1700" max="2030" placeholder="1700-2030" required class="form--element">
-                    </div>
-                    <div class="form--progress--container">
-                        <label class="progress--label">Progress</label>
-                        <div class="progress--bar">
-                            <div class="progress--reading" onclick="document.getElementById('form--radio--not-started').checked = true; this.style.backgroundColor = 'red';"">
-                                <input type="radio" id="form--radio--not-started" name="form--radio--status">
-                            </div>
-                            <div class="progress--on-hold" onclick="document.getElementById('form--radio--started').checked = true; this.style.backgroundColor = 'yellow';">
-                                <input type="radio" id="form--radio--started" name="form--radio--status">
-                            </div>
-                            <div class="progress--finished" onclick="document.getElementById('form--radio--finished').checked = true;this.style.backgroundColor = 'green';">
-                                <input type="radio" id="form--radio--finished" name="form--radio--status">
-                               
-                            </div>                            
-                        </div>
-                    </div>
-                    <p class="form--required--warning">* all fields required</p>
-                    <div class="form--button--container">
-                        <input type="button" value="Add" class="form--button">
-                        <input type="button" value="Cancel" class="form--button">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
 <!-- 
