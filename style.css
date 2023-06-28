@@ -117,11 +117,15 @@ body{
     position: relative;
 }
 
-.book--author:hover::after {
-    content: url(img/x-circle.svg);
+.remove--button{
     position: absolute;
+    right:-10px;
     top: -10px;
-    right: 5px;
+    visibility: hidden;
+}
+
+.book--card:hover .remove--button{
+    visibility: visible;
 }
 
 .author--details{

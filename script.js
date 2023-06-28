@@ -42,29 +42,6 @@ let popup = `<div class="add--book--popup--fade">
 </div>`;
 
 let myLibrary = [];
-let i = 0;
-/* let bookContainer = `<div class="book--card">
-<div class="book-details">
-    <h2 class="book--author">${myLibrary[i].name}</h2>
-    <div class="author--details">
-        <p>${myLibrary[i].author}</p>
-        <p>${myLibrary[i].year}</p>
-    </div>
-</div>
-<div class="book--progress">
-    <div class="progress--bar">
-        <div class="progress--reading"></div>
-        <div class="progress--on-hold"></div>
-        <div class="progress--finished"></div>
-    </div>
-    <p class="progress--text">Not Started</p>
-</div>
-</div>`; */
-
-
-
-/*  */
-
 
 function addBook(){
 
@@ -80,16 +57,22 @@ function addBook(){
 }
 
 function removeBook () {
-
+    console.log(this.dataset.index);
+    myLibrary.splice(this.index, 1);
+    this.parentNode.parentNode.parentNode.remove();
+    displayBook();
 }
 
 function displayBook(){    
+    let i = 0;
+    const addButton = document.querySelector('.book--add');
+    while (addButton.previousSibling) addButton.previousSibling.remove();
 
     for (; i< myLibrary.length; i++){
         document.getElementById('book--list--container').insertAdjacentHTML("afterbegin", `
         <div class="book--card">
             <div class="book-details">
-                <h2 class="book--author">${myLibrary[i].name}</h2>
+                <h2 class="book--author">${myLibrary[i].name}<img src="img/x-circle.svg" class="remove--button" data-index="${i}"></h2>
                 <div class="author--details">
                     <p>${myLibrary[i].author}</p>
                     <p>${myLibrary[i].year}</p>
@@ -106,9 +89,43 @@ function displayBook(){
             </div>
         `);
     }
+    addDelete();
+}
+
+function displayBookTWO(){    
+    let i = 0;
+    myLibrary.map(x => {
+        document.getElementById('book--list--container').insertAdjacentHTML("afterbegin", `
+        <div class="book--card">
+            <div class="book-details">
+                <h2 class="book--author">${x.name}<img src="img/x-circle.svg" class="remove--button" data-index="${i}"></h2>
+                <div class="author--details">
+                    <p>${x.author}</p>
+                    <p>${x.year}</p>
+                </div>
+            </div>
+            <div class="book--progress">
+                <div class="progress--bar">
+                    <div class="progress--reading"></div>
+                    <div class="progress--on-hold"></div>
+                    <div class="progress--finished"></div>
+                </div>
+                <p class="progress--text">Not Started</p>
+            </div>
+            </div>
+        `);
+        i++;
+    });
+    addDelete();
 }
 
 document.querySelector('.book--add').addEventListener('click', openPopup);
+document.addEventListener('DOMContentLoaded', addDelete);
+
+function addDelete(){
+    const delButton = document.querySelectorAll('.remove--button');
+    delButton.forEach(but => but.addEventListener('click', removeBook));
+}
 
 function openPopup(){
     document.body.insertAdjacentHTML("beforeend", popup);
@@ -116,9 +133,5 @@ function openPopup(){
     document.querySelector('.button--cancel').addEventListener('click', () => {
         document.querySelector('.add--book--popup--fade').remove();        
     } )
-    /* document.querySelector('.add--book--popup--fade').addEventListener('click', () => {
-        document.querySelector('.add--book--popup--fade').remove();
-    } 
-    );*/
 }
 
