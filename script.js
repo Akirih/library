@@ -126,6 +126,7 @@ function progressUpdateRealTime (progress){
         Array.from(parent.children).forEach( children => children.style.backgroundColor = 'green')
         myLibrary[this.dataset.index].progress = 'Finished';
     }    
+    displayBook();
 }
 
 document.querySelector('.book--add').addEventListener('click', openPopup);
